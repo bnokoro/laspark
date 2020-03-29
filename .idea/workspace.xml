@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="81904b70-df25-4d5a-997f-f976e472dcdb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_28_200134_bookings.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_28_200134_bookings.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_28_200857_parks_gardens.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_28_200057_parks_gardens.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +171,7 @@
       <workItem from="1585227809388" duration="278000" />
       <workItem from="1585293318101" duration="4827000" />
       <workItem from="1585325825188" duration="302000" />
-      <workItem from="1585477067109" duration="1391000" />
+      <workItem from="1585477067109" duration="2131000" />
     </task>
     <servers />
   </component>
@@ -181,6 +179,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state width="600" height="440" key="javadoc.popup" timestamp="1585478826079">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="600" height="440" key="javadoc.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1585478826079" />
     <state x="449" y="229" width="782" height="789" key="search.everywhere.popup" timestamp="1585477072092">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
