@@ -13,17 +13,20 @@ class ParksGardens extends Migration
      */
     public function up()
     {
+        /**
+         * CHANGES
+         * Removed park_id. The id can serve the same purpose
+         * Changed availability to boolean and made it available by default - We might change this later on
+         * I'm thinking availability and status might serve the same purpose. We could leave it as is for now.
+         */
         Schema::create('parks_gardens', function (Blueprint $table) {
-            
             $table->id();
-            $table->string('park_id');
-            $table->string('park_price');
-            $table->longText('park_description');
-            $table->string('park_availability');
-            $table->string('park_status');
+            $table->string('price');
+            $table->longText('description');
+            $table->boolean('availability')->default(true);
+            $table->string('status');
             $table->timestamps();
 
-            
         });
     }
 

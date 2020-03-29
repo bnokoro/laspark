@@ -13,15 +13,23 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
+        /**
+         * CHANGES MADE
+         * Added phone
+         * Renamed firstname and lastname to first_name and last_name
+         * Changed image to nullable from unique
+         * Removed unique from role and added a default value of user
+         */
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('firstname');
-            $table->string('lastname');
-            $table->text('image')->unique();
-            $table->string('role')->unique();
+            $table->string('first_name');
+            $table->string('last_name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('phone')->unique();
             $table->string('password');
+            $table->text('image')->nullable();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('role')->default('user');
             $table->rememberToken();
             $table->timestamps();
         });
