@@ -14,5 +14,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('tee');
 });
+
+
+// Route::get('/', function () {
+//     return view('try');
+// });
+
+
+// // Admin routes
+//     Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
+//     Route::get('/login', 'AuthController@index')->name('login');
+//     Route::post('/login', 'AuthController@login');
+//     Route::get('/logout', 'AuthController@logout');
+
+//     Route::get('/', 'HomeController@index')->middleware('auth');
+    
+    
+// });
+
+
+
