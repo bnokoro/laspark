@@ -13,10 +13,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+// Route::get('/', function () {
+//     return view('home');
+    
+//     // return \Illuminate\Support\Facades\Hash::make('asdfghjkl');
+// });
+
+
 Route::get('/', function () {
-    return view('tee');
+    return view('layouts.app');
 });
 
+Route::resource('parksgardens', 'ParksGardensController');
+
+
+Route::resource('services', 'ServicesController');
+
+Route::resource('bookings', 'BookingsController');
 
 // Route::get('/', function () {
 //     return view('try');
@@ -35,4 +49,9 @@ Route::get('/', function () {
 // });
 
 
+
+
+// Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
 

@@ -1,7 +1,7 @@
 
-   
-   <footer class="footer">
-                © 2020 Lexa<span class="d-none d-sm-inline-block"> - Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand</span>.
+    
+    <footer class="footer">
+                © 2020 Laspark<span class="d-none d-sm-inline-block"> - Crafted by Mactavis Technologies</span>.
         </footer>    
             </div>
             <!-- ============================================================== -->
@@ -10,21 +10,24 @@
     </div>
     <!-- END wrapper -->
     <!-- jQuery  -->
-        <script src="/admin/js/jquery.min.js"></script>
-        <script src="/admin/js/bootstrap.bundle.min.js"></script>
-        <script src="/admin/js/metisMenu.min.js"></script>
-        <script src="/admin/js/jquery.slimscroll.js"></script>
-        <script src="/admin/js/waves.min.js"></script>
+        <script src="/dash/js/jquery_002.js"></script>
+        <script src="/dash/js/bootstrap.js"></script>
+        <script src="/dash/js/metisMenu.js"></script>
+        <script src="/dash/js/jquery_003.js"></script>
+        <script src="/dash/js/waves.js"></script>
 
-      
+        {{-- <script src="/dash/js/base.js"></script> --}}
         <script src="http://lexa-v.laravel.themesbrand.com/assets/plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
-
         		<!--Morris Chart-->
-        <script src="/admin/js/morris.min.js"></script>
-        <script src="/admin/js/raphael-min.js"></script>
+        <script src="/dash/js/morris.js"></script>
+        <script src="/dash/js/raphael-min.js"></script>
 
-		<script src="/admin/js/dashboard.js"></script>
+		<script src="/dash/js/dashboard.js"></script>
 
         <!-- App js -->
-        <script src="/admin/js/app.js"></script>
+        <script src="/dash/js/app.js"></script>
         
+        
+
+    
+    
