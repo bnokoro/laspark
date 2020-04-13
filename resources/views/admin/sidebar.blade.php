@@ -11,23 +11,23 @@
                             <li class="menu-title">Main</li>
                             <li>
                                 <a href="{{route('parksgardens.index')}}" class="waves-effect">
-                                    <i class="mdi mdi-view-dashboard"></i><span class="badge badge-primary badge-pill float-right">2</span><span>Dashboard</span>
+                                    <i class="fa fa-tachometer-alt"></i><span class="badge badge-primary badge-pill float-right">2</span><span>Dashboard</span>
                                 </a>
                             </li>
                             <li>
-                            <a href="{{route('parksgardens.index')}}" class="waves-effect"><i class="mdi mdi-calendar-check"></i><span>ParksGardens</span></a>
+                            <a href="{{route('parksgardens.index')}}" class="waves-effect"><i class="fa fa-parking"></i><span>ParksGardens</span></a>
                             </li>
                             <li>
-                                <a href="{{route('bookings.index')}}"  class="waves-effect"><i class="mdi mdi-calendar-check"></i><span>Bookings</span></a>
+                                <a href="{{route('bookings.index')}}"  class="waves-effect"><i class="fa fa-ticket-alt"></i><span>Bookings</span></a>
                             </li>
                             <li>
-                                <a href="{{route('services.index')}}" class="waves-effect"><i class="mdi mdi-calendar-check"></i><span>Services</span></a>
+                                <a href="{{route('services.index')}}" class="waves-effect"><i class="fa fa-server"></i><span>Services</span></a>
                             </li>
                             <li>
-                                <a href="calendar" class="waves-effect"><i class="mdi mdi-calendar-check"></i><span>Users</span></a>
+                                <a href="calendar" class="waves-effect"><i class="fa fa-users"></i><span>Users</span></a>
                             </li>
                             <li>
-                                <a href="calendar" class="waves-effect"><i class="mdi mdi-calendar-check"></i><span>Calendar </span></a>
+                                <a href="calendar" class="waves-effect"><i class="fa fa-calendar"></i><span>Calendar </span></a>
                             </li>
 
                             <li>
@@ -49,5 +49,4 @@
             </div>
             <!-- Left Sidebar End -->            <!-- ============================================================== -->
 
-            
-            
+
