@@ -17,7 +17,7 @@
                                             Welcome to Laspark Dashboard
                                         </li>
                                     </ol>
-                                   
+
                                 </div>
                             </div>
                         </div>
@@ -25,7 +25,7 @@
 
 {{-- Parks and Gardens Start --}}
                         <div class="d-flex justify-content-end mb-4">
-                        
+
                             <a href="{{ route('parksgardens.create') }}" class="btn btn-success">Add Parks and Gardens</a>
 
                         </div>
@@ -48,8 +48,10 @@
                                     <th>
                                         Status
                                     </th>
+                                    <th></th>
+                                    <th></th>
                                 </thead>
-                            
+
                                 <tbody>
                                     @foreach($parksgardens as $parksgarden)
                                     <tr>
@@ -83,8 +85,8 @@
 
                     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
-                    
-                    <form action="" method="POST" id="deleteParksGardensForm"> 
+
+                    <form action="" method="POST" id="deleteParksGardensForm">
 
                         @method('DELETE')
                         @csrf
@@ -96,7 +98,7 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <p class="text-center text-bold"> 
+                                <p class="text-center text-bold">
                                     Are you sure you want to delete this Park and Garden ?
                                 </p>
                             </div>
@@ -112,17 +114,17 @@
                         </div>
 
 
-                                
-                                
+
+
 {{-- Parks and Gardens End --}}
-                      
+
 
 @endsection
 
 @section('scripts')
 
     <script>
-    
+
         function handleDelete(id) {
 
             var form = document.getElementById('deleteParksGardensForm')
@@ -133,7 +135,7 @@
 
             $('#deleteModal').modal('show')
         }
-    
+
     </script>
 
 @endsection

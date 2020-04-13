@@ -17,7 +17,7 @@
                                             Welcome to Laspark Dashboard
                                         </li>
                                     </ol>
-                                   
+
                                 </div>
                             </div>
                         </div>
@@ -25,7 +25,7 @@
 
 {{-- Services Start --}}
                         <div class="d-flex justify-content-end mb-4">
-                        
+
                             <a href="{{ route('services.create') }}" class="btn btn-success">Add Services</a>
 
                         </div>
@@ -40,14 +40,16 @@
                                      <th>
                                         Services
                                     </th>
-                                    
+
                                     <th>
                                         Description
                                     </th>
-                                   
-                                   
+                                    <th></th>
+                                    <th></th>
+
+
                                 </thead>
-                            
+
                                 <tbody>
                                     @foreach($services as $service)
                                     <tr>
@@ -74,8 +76,8 @@
 
                     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
-                    
-                    <form action="" method="POST" id="deleteServicesForm"> 
+
+                    <form action="" method="POST" id="deleteServicesForm">
 
                         @method('DELETE')
                         @csrf
@@ -87,7 +89,7 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <p class="text-center text-bold"> 
+                                <p class="text-center text-bold">
                                     Are you sure you want to delete this Service ?
                                 </p>
                             </div>
@@ -103,17 +105,17 @@
                         </div>
 
 
-                                
-                                
+
+
 {{-- Services End --}}
-                      
+
 
 @endsection
 
 @section('scripts')
 
     <script>
-    
+
         function handleDelete(id) {
 
             var form = document.getElementById('deleteServicesForm')
@@ -124,7 +126,7 @@
 
             $('#deleteModal').modal('show')
         }
-    
+
     </script>
 
 @endsection
