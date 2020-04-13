@@ -1,8 +1,8 @@
 
-    
+
     <footer class="footer">
                 © 2020 Laspark<span class="d-none d-sm-inline-block"> - Crafted by Mactavis Technologies</span>.
-        </footer>    
+        </footer>
             </div>
             <!-- ============================================================== -->
             <!-- End Right content here -->
@@ -13,7 +13,6 @@
         <script src="/dash/js/jquery_002.js"></script>
         <script src="/dash/js/bootstrap.js"></script>
         <script src="/dash/js/metisMenu.js"></script>
-        <script src="/dash/js/jquery_003.js"></script>
         <script src="/dash/js/waves.js"></script>
 
         {{-- <script src="/dash/js/base.js"></script> --}}
@@ -26,8 +25,7 @@
 
         <!-- App js -->
         <script src="/dash/js/app.js"></script>
-        
-        
 
-    
-    
+
+
+
