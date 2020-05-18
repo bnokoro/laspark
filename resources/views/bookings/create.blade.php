@@ -12,14 +12,14 @@
                                             Welcome to Laspark Dashboard
                                         </li>
                                     </ol>
-                                    
+
                                 </div>
                             </div>
                         </div>
                         <!-- end row -->
 
 {{--Create Parks and Gardens Start --}}
-                       
+
                         <div class="card card-default">
                             <div class="card-header">
                                 {{isset($booking) ? 'Edit Bookings' : 'Create Bookings' }}
@@ -33,15 +33,15 @@
                                         <li class="list-group-item text-danger">
                                             {{$error}}
                                         </li>
-                                        @endforeach 
- 
+                                        @endforeach
+
                                     </ul>
                                 </div>
-                                @endif 
+                                @endif
 
 
                             <form action="{{ isset($booking) ? route('bookings.update', $booking->id) :  route('bookings.store') }}" method="POST">
-                            
+
                                     @csrf
 
                                     @if(isset($booking))
@@ -51,19 +51,19 @@
                                     @endif
 
                                     <div class="form-group">
-  
+
                                         <label for="name">Parks Gardens ID</label>
                                         <input type="text" id="parks_gardens_id" class="form-control" name="parks_gardens_id" value="{{ isset ($booking) ? $booking->parks_gardens_id : '' }}">
 
-                                          
+
                                         <label for="name">Service ID</label>
                                         <input type="text" id="service_id" class="form-control" name="service_id" value="{{ isset ($booking) ? $booking->service_id : '' }}">
 
-      
+
                                         <label for="name">Amount Booked</label>
                                         <input type="text" id="amount_booked" class="form-control" name="amount_booked" value="{{ isset ($booking) ? $booking->amount_booked : '' }}">
 
-                                          
+
                                         <label for="name">Booking Status</label>
                                         <select class="form-control" id="booking_status" name="booking_status" value="{{ isset ($booking) ? $booking->booking_status : '' }}">
                                             <option>0</option>
@@ -73,10 +73,10 @@
 
                                         <label for="name">Time Booked</label>
                                         <input type="datetime-local" id="time_booked" class="form-control" name="time_booked" value="{{ isset ($booking) ? $booking->time_booked : '' }}">
-                                      
+
                                         <label for="name">Duration Booked</label>
                                         <input type="datetime-local" id="duration_booked" class="form-control" name="duration_booked" value="{{ isset ($booking) ? $booking->duration_booked : '' }}">
-                                      
+
 
                                     </div>
                                         <div class="form-group">
@@ -87,8 +87,8 @@
                             </form>
                             </div>
                         </div>
-                                
-                                
+
+
 {{--Create Bookings End --}}
-                     
+
 @endsection
