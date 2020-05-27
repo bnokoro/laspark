@@ -24,10 +24,14 @@ class CreateParksGardensRequest extends FormRequest
     public function rules()
     {
         return [
-            'price' => 'required|unique:parks_gardens',
-            'description' => 'required|unique:parks_gardens',
-            'availability' => 'required|boolean:parks_gardens',
-            'status' => 'required|unique:parks_gardens'
+            'price'=> 'required|unique:parks_gardens',
+            'description'=>'required|unique:parks_gardens',
+            'availability'=>'required|unique:parks_gardens',
+            'status'=>'required|unique:parks_gardens',
+            'land_area'=>'required| unique:parks_gardens',
+            'toilets'=>'required| unique:parks_gardens',
+            'trees'=>'required| unique:parks_gardens'
+                 
         ];
     }
 }

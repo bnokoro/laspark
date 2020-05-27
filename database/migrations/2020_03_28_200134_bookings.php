@@ -25,7 +25,8 @@ class Bookings extends Migration
             $table->unsignedBigInteger('parks_gardens_id');
             $table->unsignedBigInteger('service_id');
             $table->string('amount_booked');
-            $table->boolean('booking_status');
+            $table->string('booking_status');
+            $table->string('service');
             $table->dateTime('time_booked');
             $table->time('duration_booked');
             $table->timestamps();

@@ -28,9 +28,10 @@ class CreateBookingsRequest extends FormRequest
             'parks_gardens_id' => 'required|unique:bookings',
             'service_id' => 'required|unique:bookings',
             'amount_booked' => 'required|unique:bookings',
-            'booking_status' => 'required|boolean:bookings',
+            'booking_status' => 'required|unique:bookings',
             'time_booked' => 'required|unique:bookings',
-            'duration_booked' => 'required|unique:bookings'
+            'duration_booked' => 'required|unique:bookings',
+            'service' => 'required|unique:bookings'
 
 
         ];

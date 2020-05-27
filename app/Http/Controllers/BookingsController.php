@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Booking;
+use App\Service;
 use Illuminate\Http\Request;
 use App\Http\Requests\Bookings\CreateBookingsRequest;
 use App\Http\Requests\Bookings\UpdateBookingsRequest;
@@ -17,7 +18,7 @@ class BookingsController extends Controller
      */
     public function index()
     {
-        return view('bookings.index')->with('bookings', Booking::all());
+        return view('admin.bookings.index')->with('bookings', Booking::all());
     }
 
     /**
@@ -27,7 +28,7 @@ class BookingsController extends Controller
      */
     public function create()
     {
-        return view('bookings.create');
+        return view('admin.bookings.create')->with('services', Service::all());
     }
 
     /**
@@ -40,17 +41,18 @@ class BookingsController extends Controller
     {
          Booking::create([
                 'parks_gardens_id' => $request->parks_gardens_id,
-                'service_id' => $request->service_id,
+                'service_id' => $request->service,
                 'amount_booked' => $request->amount_booked,
                 'booking_status' => $request->booking_status,
                'time_booked'=>$request->time_booked,
-               'duration_booked' =>$request->duration_booked
+               'duration_booked' =>$request->duration_booked,
+               'service' =>$request->service
 
              ]);
 
             session()->flash('success', 'Bookings Created Successfully.');
 
-            return redirect(route('bookings.index'));
+            return redirect(route('admin.bookings.index'));
     }
 
     /**
@@ -72,7 +74,7 @@ class BookingsController extends Controller
      */
     public function edit(Booking $booking)
     {
-         return view('bookings.create')->with('booking', $booking);
+         return view('admin.bookings.create')->with('booking', $booking);
     }
 
     /**
@@ -90,13 +92,14 @@ class BookingsController extends Controller
                 'amount_booked' => $request->amount_booked,
                 'booking_status' => $request->booking_status,
                 'time_booked'=>$request->time_booked,
-                'duration_booked' =>$request->duration_booked
+                'duration_booked' =>$request->duration_booked,
+                'service' =>$request->service,
         
         ]);
 
          session()->flash('success', 'Bookings Updated Successfully.');
 
-         return redirect(route('bookings.index'));
+         return redirect(route('admin.bookings.index'));
     }
 
     /**
@@ -111,6 +114,6 @@ class BookingsController extends Controller
 
         session()->flash('success', 'Bookings Deleted Successfully.');
 
-        return redirect(route('bookings.index'));
+        return redirect(route('admin.bookings.index'));
     }
 }

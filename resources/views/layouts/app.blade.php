@@ -12,17 +12,21 @@
         <link rel="stylesheet" href="/admin/css/morris.css"> --}}
         <link rel="stylesheet" href="http://lexa-v.laravel.themesbrand.com/assets/plugins/morris/morris.css">
 
+
         <link href="/dash/css/bootstrap.css" rel="stylesheet" type="text/css">
         <link href="/dash/css/metismenu.css" rel="stylesheet" type="text/css">
         <link href="/dash/css/icons.css" rel="stylesheet" type="text/css">
         <link href="/dash/css/style.css" rel="stylesheet" type="text/css"></head>
-    <link rel="stylesheet" href="/font-awesome/css/all.css">
+        <link rel="stylesheet" href="/font-awesome/css/all.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css">
+   
+        @yield('css')
 <body>
 
-@include('admin.header')
+@include('layouts.header')
 
 
-@include('admin.sidebar')
+@include('layouts.sidebar')
 
 
 <!-- Start right Content here -->
@@ -37,11 +41,14 @@
                     </div> <!-- container-fluid -->
                 </div> <!-- content -->
             </div>
-@include('admin.footer')
+@include('layouts.footer')
 
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" crossorigin="anonymous"></script>
+{{-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"  crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" crossorigin="anonymous"></script> --}}
+
+
+{{-- <script src="{{asset('js/app.js')}}"></script> --}}
 
 @yield('scripts')
 </body>

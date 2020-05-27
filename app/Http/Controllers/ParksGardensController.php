@@ -16,7 +16,7 @@ class ParksGardensController extends Controller
      */
     public function index()
     {
-         return view('parksgardens.index')->with('parksgardens', ParksGarden::all());
+         return view('admin.parksgardens.index')->with('parksgardens', ParksGarden::all());
     }
 
     /**
@@ -26,7 +26,7 @@ class ParksGardensController extends Controller
      */
     public function create()
     {
-        return view('parksgardens.create');
+        return view('admin.parksgardens.create');
     }
 
     /**
@@ -37,16 +37,20 @@ class ParksGardensController extends Controller
      */
     public function store(CreateParksGardensRequest $request)
     {
+        
             ParksGarden::create([
                 'price' => $request->price,
                 'description' => $request->description,
                 'availability' => $request->availability,
-                'status'=>$request->status 
+                'status'=>$request->status, 
+                'land_area'=>$request->land_area,
+                'toilets'=>$request->toilets, 
+                'trees'=>$request->trees,  
             ]);
 
             session()->flash('success', 'Parks and Gardens created Successfully.');
 
-            return redirect(route('parksgardens.index'));
+            return redirect(route('admin.parksgardens.index'));
 
     }
 
@@ -69,7 +73,7 @@ class ParksGardensController extends Controller
      */
     public function edit(ParksGarden $parksgarden)
     {
-        return view('parksgardens.create')->with('parksgarden', $parksgarden);
+        return view('admin.parksgardens.create')->with('parksgarden', $parksgarden);
     }
 
     /**
@@ -80,18 +84,22 @@ class ParksGardensController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateParksGardensRequest $request, ParksGarden $parksgarden)
-    {
+    { 
+        
         $parksgarden->update([
             'price' => $request->price,
             'description' => $request->description,
             'availability' => $request->availability,
-            'status' => $request->status
+            'status' => $request->status,
+            'land_area'=>$request->land_area,
+            'toilets'=>$request->toilets, 
+            'trees'=>$request->trees,  
         
         ]);
 
          session()->flash('success', 'Parks and Gardens Updated Successfully.');
 
-         return redirect(route('parksgardens.index'));
+         return redirect(route('admin.parksgardens.index'));
     }
 
     /**
@@ -106,6 +114,6 @@ class ParksGardensController extends Controller
 
         session()->flash('success', 'Parks and Gardens Deleted Successfully.');
 
-        return redirect(route('parksgardens.index'));
+        return redirect(route('admin.parksgardens.index'));
     }
 }

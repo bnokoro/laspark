@@ -25,12 +25,14 @@ Route::get('/', function () {
     return view('layouts.app');
 });
 
-Route::resource('parksgardens', 'ParksGardensController');
+Route::resource('admin/parksgardens', 'ParksGardensController');
 
 
-Route::resource('services', 'ServicesController');
+Route::resource('admin/services', 'ServicesController');
 
-Route::resource('bookings', 'BookingsController');
+Route::resource('admin/bookings', 'BookingsController');
+
+Route::resource('admin/park-bookings', 'ParkBookingsController');
 
 // Route::get('/', function () {
 //     return view('try');

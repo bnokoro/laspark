@@ -23,9 +23,15 @@ class ParksGardens extends Migration
             $table->id();
             $table->string('price');
             $table->longText('description');
-            $table->boolean('availability')->default(true);
+            $table->string('availability');
             $table->string('status');
+            $table->string('land_area');
+            $table->string('toilets');
+            $table->string('trees');
             $table->timestamps();
+
+
+           
 
         });
     }

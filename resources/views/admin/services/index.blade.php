@@ -8,32 +8,33 @@
                       </div>
 @endif
 
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="page-title-box">
-                                    <h4 class="page-title">Dashboard</h4>
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item active">
-                                            Welcome to Laspark Dashboard
-                                        </li>
-                                    </ol>
 
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end row -->
+<div class="row">
+        <div class="col-sm-12">
+            <div class="page-title-box">
+                <h4 class="page-title">
+                    Services
+                    <div class="d-flex justify-content-end mb-2 pt-2">
+                        <a href="{{ route('services.create') }}" class="btn btn-primary btn-sm waves-effect waves-light pull-right">
+                        <i class="fa fa-plus"></i>
+                    Add Services
+                    </a>
+                    </div>
+                    
+                </h4>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                    <li class="breadcrumb-item active"><a href="#">Services</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
 
-{{-- Services Start --}}
-                        <div class="d-flex justify-content-end mb-4">
-
-                            <a href="{{ route('services.create') }}" class="btn btn-success">Add Services</a>
-
-                        </div>
-                        <div class="card card-default">
-                            <div class="card-header">Services</div>
-
-                        <div class="card-body">
-                            <table class="table">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card m-b-20">
+                  <div class="card-body">
+                            <table class="table table-bordered" id="datatable">
 
                                 <thead>
 
@@ -44,8 +45,10 @@
                                     <th>
                                         Description
                                     </th>
-                                    <th></th>
-                                    <th></th>
+                                     <th width="250">
+                                        Action
+                                    </th>
+                                   
 
 
                                 </thead>
@@ -65,14 +68,16 @@
                                              <a href="{{ route('services.edit', $service->id) }}" class="btn btn-info btn-sm">
                                                 Edit
                                              </a>
+                                              <button class="btn btn-danger btn-sm" onclick="handleDelete({{$service->id}})">Delete</button>
                                         </td>
-                                        <td>
-                                             <button class="btn btn-danger btn-sm" onclick="handleDelete({{$service->id}})">Delete</button>
-                                        </td>
+                                       
                                     </tr>
                                     @endforeach
                                 </tbody>
                                 </table>
+                            </div>
+                        </div>
+                  </div>
 
                     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">

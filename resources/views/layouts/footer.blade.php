@@ -4,9 +4,7 @@
                 © 2020 Laspark<span class="d-none d-sm-inline-block"> - Crafted by Mactavis Technologies</span>.
         </footer>
             </div>
-            <!-- ============================================================== -->
-            <!-- End Right content here -->
-            <!-- ============================================================== -->
+        
     </div>
     <!-- END wrapper -->
     <!-- jQuery  -->

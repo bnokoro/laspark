@@ -18,7 +18,7 @@ class ServicesController extends Controller
      */
     public function index()
     {
-        return view('services.index')->with('services', Service::all());
+        return view('admin.services.index')->with('services', Service::all());
     }
 
     /**
@@ -28,7 +28,7 @@ class ServicesController extends Controller
      */
     public function create()
     {
-        return view('services.create');
+        return view('admin.services.create');
     }
 
     /**
@@ -49,7 +49,7 @@ class ServicesController extends Controller
 
             session()->flash('success', 'Services Created Successfully.');
 
-            return redirect(route('services.index'));
+            return redirect(route('admin.services.index'));
     }
 
     /**
@@ -71,7 +71,7 @@ class ServicesController extends Controller
      */
     public function edit(Service $service)
     {
-         return view('services.create')->with('service', $service);
+         return view('admin.services.create')->with('service', $service);
     }
 
     /**
@@ -95,7 +95,7 @@ class ServicesController extends Controller
 
          session()->flash('success', 'Services Updated Successfully.');
 
-         return redirect(route('services.index'));
+         return redirect(route('admin.services.index'));
     }
 
     /**
@@ -110,6 +110,6 @@ class ServicesController extends Controller
 
         session()->flash('success', 'Services Deleted Successfully.');
 
-        return redirect(route('services.index'));
+        return redirect(route('admin.services.index'));
     }
 }
