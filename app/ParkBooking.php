@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ParkBooking extends Model
 {
-    protected $fillable = ['park_name', 'guest_number', 'event_type'];
+    protected $fillable = ['park_name', 'guest_number', 'event_type', 'user_id'];
 
       public function user()
     {

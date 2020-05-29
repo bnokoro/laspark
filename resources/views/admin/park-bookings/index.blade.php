@@ -30,7 +30,12 @@
                                      <th width="10">
                                          S.No
                                      </th>
+
                                      <th>
+                                        Park User
+                                    </th>
+
+                                    <th>
                                         Park Name
                                     </th>
                                     
@@ -50,10 +55,13 @@
                                 </thead>
                             
                                 <tbody>
-                                    @foreach($errors as $park_booking)
+                                    @foreach($park_bookings as $park_booking)
                                     <tr>
                                         <td>
                                             {{$sn++}}
+                                        </td>
+                                        <td>
+                                             {{$park_booking['user'] ? $park_booking['user']['first_name']. '  ' . $park_booking['user']['last_name'] : ''}}
                                         </td>
                                         <td>
                                              {{$park_booking['park_name']}}
@@ -79,7 +87,7 @@
                                                 data-url="/admin/park-bookings/{{$park_booking['id']}}"
                                                 data-target="#delete-park-bookings">
                                                 Delete
-                                             </button>>
+                                             </button>
                                         </td>
                                        
                                     </tr>

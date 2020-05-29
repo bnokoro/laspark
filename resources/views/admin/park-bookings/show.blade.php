@@ -13,7 +13,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
                     <li class="breadcrumb-item"><a href="/admin/park-bookings">Park Bookings</a></li>
-                    <li class="breadcrumb-item active"><a href="#">{{$user_details['park_name']}}</a></li>
+                    <li class="breadcrumb-item active"><a href="#">{{$park_booking_details['park_name']}}</a></li>
                 </ol>
             </div>
         </div>

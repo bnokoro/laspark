@@ -9,111 +9,99 @@ use App\Http\Requests\ParksGardens\UpdateParksGardensRequest;
 
 class ParksGardensController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function index()
     {
-         return view('admin.parksgardens.index')->with('parksgardens', ParksGarden::all());
+        $parksgardens = ParksGarden::latest()->get();
+        $sn = 1;
+
+        return view('admin.parksgardens.index', compact('parksgardens','sn' ));
+        //  return view('admin.parksgardens.index')->with('parksgardens', ParksGarden::all());
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        return view('admin.parksgardens.create');
+        $action = '/admin/parksgardens/';
+        $parksgarden = null;
+
+        return view('admin.parksgardens.create', compact('action', 'parksgarden'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(CreateParksGardensRequest $request)
     {
+           $file_path = '';
+        if ($request->image) {
+            $file_path = FileUploader::uploadBase64File($request->image, $request->extension, 'parksgardens');
+        }    
         
             ParksGarden::create([
+                'park_name' => $request->park_name,
                 'price' => $request->price,
+                'image' => $file_path,
                 'description' => $request->description,
                 'availability' => $request->availability,
                 'status'=>$request->status, 
                 'land_area'=>$request->land_area,
                 'toilets'=>$request->toilets, 
                 'trees'=>$request->trees,  
+                'latitude'=>$request->latitude,  
+                'longitude'=>$request->longitude
             ]);
 
-            session()->flash('success', 'Parks and Gardens created Successfully.');
-
-            return redirect(route('admin.parksgardens.index'));
+            
+        
+        return redirect('/admin/parksgardens')->with('success', ' Park Garden created successfully!');
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function edit(ParksGarden $parksgarden)
     {
-        return view('admin.parksgardens.create')->with('parksgarden', $parksgarden);
+        $action = '/admin/parksgardens/' . $parksgarden->id;
+        
+         return view('admin.parksgardens.create', compact('action', 'parksgarden'));
+        // return view('admin.parksgardens.create')->with('parksgarden', $parksgarden);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(UpdateParksGardensRequest $request, ParksGarden $parksgarden)
     { 
+         $file_path = $parksgarden->image;
+        if ($request->image) {
+            $file_path = FileUploader::uploadBase64File($request->image, $request->extension, 'parksgardens');
+        }  
         
         $parksgarden->update([
+
+            'park_name' => $request->park_name,
             'price' => $request->price,
+            'image' => $file_path,
             'description' => $request->description,
             'availability' => $request->availability,
             'status' => $request->status,
             'land_area'=>$request->land_area,
             'toilets'=>$request->toilets, 
-            'trees'=>$request->trees,  
+            'trees'=>$request->trees, 
+            'latitude'=>$request->latitude,  
+            'longitude'=>$request->longitude 
         
         ]);
+             return redirect('/admin/parksgardens')->with('success', ' Park Garden updated successfully!');
 
-         session()->flash('success', 'Parks and Gardens Updated Successfully.');
+   }
 
-         return redirect(route('admin.parksgardens.index'));
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(ParksGarden $parksgarden)
     {
+        $message = $parksgarden->park_name  . ' park deleted successfully';
         $parksgarden->delete();
-
-        session()->flash('success', 'Parks and Gardens Deleted Successfully.');
-
-        return redirect(route('admin.parksgardens.index'));
+       
+        
+        return redirect()->back()->with('success', $message);
     }
 }

@@ -15,7 +15,7 @@ class CreateUsersTable extends Migration
     {
         /**
          * CHANGES MADE
-         * Added phone
+         * Added phone 62273612
          * Renamed firstname and lastname to first_name and last_name
          * Changed image to nullable from unique
          * Removed unique from role and added a default value of user

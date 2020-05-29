@@ -21,9 +21,14 @@
 
 		<script src="/dash/js/dashboard.js"></script>
 
+                
+        <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+        <script src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
+        <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+        <script src="https://unpkg.com/filepond-plugin-file-poster/dist/filepond-plugin-file-poster.js"></script>
         <!-- App js -->
         <script src="/dash/js/app.js"></script>
-
+        <script src="/js/main.js"></script>
 
 
 

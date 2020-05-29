@@ -21,13 +21,16 @@ class ParksGardens extends Migration
          */
         Schema::create('parks_gardens', function (Blueprint $table) {
             $table->id();
+            $table->string('park_name');
+            $table->string('image');
             $table->string('price');
             $table->longText('description');
             $table->string('availability');
-            $table->string('status');
             $table->string('land_area');
             $table->string('toilets');
             $table->string('trees');
+            $table->string('latitude');
+            $table->string('longitude');
             $table->timestamps();
 
 

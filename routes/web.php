@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-// Route::get('/', function () {
-//     return view('home');
+// Route::get('/a', function () {
+//     // $2y$10$ncX/Jieq9pu4euU6JBNBQ.BRqxO9Rfg5emiBWNqvEVkpZzyfXMjba
     
-//     // return \Illuminate\Support\Facades\Hash::make('asdfghjkl');
+//     return \Illuminate\Support\Facades\Hash::make('asdfghjkl');
 // });
 
 
