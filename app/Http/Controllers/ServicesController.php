@@ -11,105 +11,106 @@ use App\Http\Requests\Services\UpdateServicesRequest;
 
 class ServicesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
-        return view('admin.services.index')->with('services', Service::all());
+        
+        $services = Service::latest()->get();
+        $sn = 1;
+    
+        return view('admin.services.index', compact('services','sn' ));
+        // return view('admin.services.index')->with('services', Service::all());
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
-        return view('admin.services.create');
+        $action = '/admin/services/';
+        $service = null;
+
+        return view('admin.services.create', compact('action', 'service'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(CreateServicesRequest $request)
     {
+         $file_path1 = '';
+        if ($request->image) {
+            $file_path1 = FileUploader::uploadBase64File($request->image, $request->extension, 'services');
+        }   
+
+
+           $file_path2 = '';
+        if ($request->icon) {
+            $file_path2 = FileUploader::uploadBase64File($request->icon, $request->extension, 'services');
+        }   
          Service::create([
            
-                'service'=>$request->service,
-
-                     
+                'service_name'=>$request->service_name,
+                'service_image' => $file_path1,
+                'service_icon' =>  $file_path2,
                 'description' => $request->description
             ]);
 
-            session()->flash('success', 'Services Created Successfully.');
+     
 
-            return redirect(route('admin.services.index'));
+             return redirect('/admin/services')->with('success', 'Services Created Successfully.');
+
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+  
     public function show($id)
     {
-        //
+        
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function edit(Service $service)
     {
-         return view('admin.services.create')->with('service', $service);
+         $action = '/admin/services/' . $service->id;
+        
+         return view('admin.services.create', compact('action', 'service'));
+        //  return view('admin.services.create')->with('service', $service);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(UpdateServicesRequest $request, Service $service)
     {
     
+         $file_path1 = $service->image;
+        if ($request->image) {
+            $file_path = FileUploader::uploadBase64File($request->image, $request->extension, 'services');
+        }  
+
+         $file_path2 = $service->icon;
+        if ($request->icon) {
+            $file_path = FileUploader::uploadBase64File($request->icon, $request->extension, 'services');
+        }  
+
         $service->update([
            
-                'service'=>$request->service,
-
-                     
+                'service_name'=>$request->service_name,
+                'service_image' => $file_path1,
+                'service_icon' =>  $file_path2,
                 'description' => $request->description
         
         ]);
 
-         session()->flash('success', 'Services Updated Successfully.');
+        
 
-         return redirect(route('admin.services.index'));
+          return redirect('/admin/services')->with('success', ' Service Updated Successfully!');
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function destroy(Service $service)
     {
+       
+        $message = $service->service_name  . ' service deleted successfully';
         $service->delete();
-
-        session()->flash('success', 'Services Deleted Successfully.');
-
-        return redirect(route('admin.services.index'));
+       
+        
+        return redirect()->back()->with('success', $message);
     }
 }

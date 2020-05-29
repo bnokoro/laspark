@@ -3,9 +3,13 @@
 @section('content')
 
 @if(session()->has('success'))
-                      <div class="alert alert-success">
-                          {{ session()->get('success') }}
-                      </div>
+<div class="alert alert-primary">
+{{ session()->get('success') }}
+</div>
+ @elseif(session()->has('error'))
+<div class="alert alert-danger">
+{{ session()->get('error') }}
+</div>
 @endif
 
 
@@ -21,7 +25,7 @@
                     </a>
                     </div>
                     
-                </h4>
+                    </h4>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
                     <li class="breadcrumb-item active"><a href="#">Services</a></li>
@@ -38,37 +42,60 @@
 
                                 <thead>
 
-                                     <th>
-                                        Services
+                                    <th width="10">
+                                        S.No
                                     </th>
-
-                                    <th>
+                                     <th>
+                                        Service Name
+                                    </th>
+                                     <th>
                                         Description
+                                    </th>
+                                    <th>
+                                       Service Image
+                                    </th> 
+                                    <th>
+                                       Service Icon
                                     </th>
                                      <th width="250">
                                         Action
                                     </th>
-                                   
-
-
-                                </thead>
+                              </thead>
 
                                 <tbody>
                                     @foreach($services as $service)
                                     <tr>
                                         <td>
-                                             {{$service->service}}
+                                             {{$sn++}}
+                                        </td>
+                                        <td>
+                                             {{$service->service_name}}
                                         </td>
 
                                         <td>
-                                             {{$service->description}}
+                                             {{ \App\Helpers\StrHelper::limit($service->description)}}
+                                        </td>
+
+                                         <td>
+                                             {{$service->service_image}}
+                                        </td>
+
+                                         <td>
+                                             {{$service->service_icon}}
                                         </td>
 
                                         <td>
-                                             <a href="{{ route('services.edit', $service->id) }}" class="btn btn-info btn-sm">
-                                                Edit
-                                             </a>
-                                              <button class="btn btn-danger btn-sm" onclick="handleDelete({{$service->id}})">Delete</button>
+                                             <a href="/admin/services/{{$service->id}}/edit"
+                                                class="btn btn-info btn-sm">
+                                                 Edit
+                                              </a> 
+                                              <button
+                                                class="btn btn-danger btn-sm waves-effect waves-light delete-button"
+                                                data-toggle="modal"
+                                                data-url="/admin/services/{{$service->id}}"
+                                                data-target="#delete-services">
+                                                Delete
+                                             </button>
                                         </td>
                                        
                                     </tr>
@@ -78,60 +105,13 @@
                             </div>
                         </div>
                   </div>
+        @include('admin.services.partials._delete')
+</div>
 
-                    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-
-                    <form action="" method="POST" id="deleteServicesForm">
-
-                        @method('DELETE')
-                        @csrf
-                            <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="deleteModalLabel">Delete Services</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <p class="text-center text-bold">
-                                    Are you sure you want to delete this Service ?
-                                </p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">No, Go back</button>
-                                <button type="submit" class="btn btn-danger">Yes, Delete</button>
-                            </div>
-                            </div>
-                    </form>
-                        </div>
-                        </div>
-                            </div>
-                        </div>
-
-
+@stop
 
 
 {{-- Services End --}}
 
 
-@endsection
 
-@section('scripts')
-
-    <script>
-
-        function handleDelete(id) {
-
-            var form = document.getElementById('deleteServicesForm')
-
-            form.action = '/services/' + id
-
-             console.log('deleting.', form)
-
-            $('#deleteModal').modal('show')
-        }
-
-    </script>
-
-@endsection

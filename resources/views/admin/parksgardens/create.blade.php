@@ -18,16 +18,16 @@
                                 </div>
                                 @endif  --}}
     
-                            
-    @if(session()->has('success'))
-        <div class="alert alert-primary">
-            {{ session()->get('success') }}
-        </div>
-    @elseif(session()->has('error'))
-        <div class="alert alert-danger">
-            {{ session()->get('error') }}
-        </div>
-    @endif
+                                                    
+                            @if(session()->has('success'))
+                                <div class="alert alert-primary">
+                                    {{ session()->get('success') }}
+                                </div>
+                            @elseif(session()->has('error'))
+                                <div class="alert alert-danger">
+                                    {{ session()->get('error') }}
+                                </div>
+                            @endif
                             <div class="row">
                                     <div class="col-sm-12">
                                         <div class="page-title-box"><h4 class="page-title">{{isset($parksgarden) ? 'Edit' : 'Create ' }} Parks and Gardens</h4>
@@ -94,7 +94,7 @@
                                     </div>
 
                                     
-                                    <div class="row">
+                                <div class="row">
                                         
                                     <div class="form-group col-md-6">
   
@@ -142,13 +142,14 @@
                                                 {{ isset ($parksgarden) ? 'Update Parks and Gardens' : 'Add Parks and Gardens' }}
                                             </button>
                                     </div>
+                                
                             </form>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
                                 
                                 
 {{--Create Parks and Gardens End --}}

@@ -3,25 +3,15 @@
 @section('content')
 
 {{--Create Services Start --}}
-                       
-                        <div class="card card-default">
-                            <div class="card-header">
-                                {{isset($service) ? 'Edit Services' : 'Create Services' }}
-                            </div>
-                            <div class="card-body">
-
-                                @if($errors->any())
-                                <div class="alert allert-danger">
-                                    <ul class="list-group">
-                                        @foreach($errors->all() as $error)
-                                        <li class="list-group-item text-danger">
-                                            {{$error}}
-                                        </li>
-                                        @endforeach 
- 
-                                    </ul>
+                        @if(session()->has('success'))
+                                <div class="alert alert-primary">
+                                    {{ session()->get('success') }}
                                 </div>
-                                @endif 
+                            @elseif(session()->has('error'))
+                                <div class="alert alert-danger">
+                                    {{ session()->get('error') }}
+                                </div>
+                            @endif                 
                               <div class="row">
                                     <div class="col-sm-12">
                                         <div class="page-title-box"><h4 class="page-title">{{isset($service) ? 'Edit' : 'Create ' }} Services</h4>
@@ -38,8 +28,9 @@
                             <div class="col-md-12">
                                 <div class="card m-b-20">
                                     <div class="card-body">
-                                          <form action="{{ isset($service) ? route('services.update', $service->id) :  route('services.store') }}" method="POST">
-                            
+
+                                          {{-- <form action="{{ isset($service) ? route('services.update', $service->id) :  route('services.store') }}" method="POST"> --}}
+                                                <form id="service-form" data-id="{{$service ? $service->id : ''}}" action="{{$action}}" data-editing="{{!!$service}}" method="post" enctype="multipart/form-data">
                                                 @csrf
 
                                                 @if(isset($service))
@@ -50,18 +41,54 @@
 
                                                 <div class="form-group">
             
-                                                    <label for="name">Service</label>
-                                                    <input type="text" id="service" class="form-control" name="service" value="{{ isset ($service) ? $service->service : '' }}">
-
+                                                <label for="name">Service Name</label>
+                                                <input type="text" id="service_name" class="form-control" name="service_name" value="{{ isset ($service) ? $service->service_name : '' }}">
+                                                @error('service_name')
+                                                    <span>{{$message}}</span>
+                                                @enderror
+                                                </div>
+                                                <div class="form-group">
+                                                    
                                                     <label for="name">Description</label>
                                                     <textarea rows="3" id="description" class="form-control" name="description">{{ isset ($service) ? $service->description : '' }}</textarea>
-
+                                                    @error('description')
+                                                        <span>{{$message}}</span>
+                                                    @enderror
                                                 </div>
-                                                    <div class="form-group">
+                                                
+                                                <div class="form-group">
+                                                    <label for="">Service Images</label>
+                                                    <input
+                                                        type="file"
+                                                        id="file-pond"
+                                                        class="filepond text-danger"
+                                                        name="filepond"
+                                                        multiple
+                                                        data-max-files="1">
+                                                    @error('service_image')
+                                                        <span>{{$message}}</span>
+                                                    @enderror
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="">Service Icons</label>
+                                                    <input
+                                                        type="file"
+                                                        id="file-pond"
+                                                        class="filepond text-danger"
+                                                        name="filepond"
+                                                        multiple
+                                                        data-max-files="1">
+                                                        @error('service_icon')
+                                                            <span>{{$message}}</span>
+                                                        @enderror
+                                                </div>
+                                                
+                                                <div class="form-group">
                                                         <button class="btn btn-primary">
                                                             {{ isset ($service) ? 'Update Services' : 'Add Services' }}
                                                         </button>
-                                                    </div>
+                                                </div>
                             </form>
                             </div>
                         </div>
@@ -76,27 +103,5 @@
                        
 
 
-@endsection
+@stop
 
-
-{{-- 
-@section('scripts')
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.1/trix.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
-<script>
-flatpickr('#time_booked')
-</script>
-
-@endsection --}}
-{{-- 
-@section('css')
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.1/trix.css">
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-
-@endsection --}}

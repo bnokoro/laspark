@@ -25,9 +25,11 @@ class UpdateServicesRequest extends FormRequest
     {
         return [
             
-            'service' => 'required|unique:services',
-            
-            'description' => 'required|unique:services'
+           
+            'service_name' => 'required:services',
+            'service_image' => 'services',
+            'service_icon' => 'services',
+            'description' => 'required:services'
         ];
     }
 }
