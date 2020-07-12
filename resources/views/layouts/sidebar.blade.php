@@ -15,6 +15,12 @@
                                     <span>Dashboard</span>
                                 </a>
                             </li>
+                             <li>
+                                     <a href="/admin/settings" class="waves-effect">
+                                     <i class="fas fa-wrench"></i>
+                                     <span> Cms </span>
+                                     </a>
+                             </li>
                             <li>
                             <a href="{{route('parksgardens.index')}}" class="waves-effect">
                                 <i class="fa fa-parking"></i>

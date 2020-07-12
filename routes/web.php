@@ -34,6 +34,15 @@ Route::resource('admin/bookings', 'BookingsController');
 
 Route::resource('admin/park-bookings', 'ParkBookingsController');
 
+
+
+Route::get('admin/settings', 'SettingsController@index');
+Route::post('admin/settings/update-home', 'SettingsController@updateHome');
+Route::post('admin/settings/update-aboutus', 'SettingsController@updateAboutus');
+Route::post('admin/settings/update-pagetwo', 'SettingsController@updatePageTwo');
+Route::post('admin/settings/update-faqs', 'SettingsController@updateFaqs');
+Route::post('admin/settings/update-support', 'SettingsController@updateSupport');
+
 // Route::get('/', function () {
 //     return view('try');
 // });
